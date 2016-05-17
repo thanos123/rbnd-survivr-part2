@@ -2,6 +2,7 @@ require_relative "game"
 require_relative "tribe"
 require_relative "contestant"
 require_relative "jury"
+require "colorizr"
 
 #After your tests pass, uncomment this code below
 #=========================================================
@@ -28,7 +29,8 @@ end
 
 def phase_two
   3.times do
-    @borneo.individual_immunity_challenge
+    immune_individual = @borneo.individual_immunity_challenge
+    @merge_tribe.tribal_council(immune: immune_individual)
   end
 end
 
