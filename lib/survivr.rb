@@ -20,12 +20,23 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
+  8.times do
+    losing_tribe = @borneo.immunity_challenge
+    losing_tribe.tribal_council(immune: losing_tribe.members.sample)
+  end
 end
 
 def phase_two
+  3.times do
+    @borneo.individual_immunity_challenge
+  end
 end
 
 def phase_three
+  7.times do
+    member = @merge_tribe.tribal_council(immune: @merge_tribe.members.sample)
+    @jury.add_member(member)
+  end
 end
 
 
