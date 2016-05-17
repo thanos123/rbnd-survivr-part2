@@ -12,8 +12,8 @@ class Tribe
   end
 
   def tribal_council(options)
-    members = @members
+    members = @members.clone
     members.delete(options[:immune])
-    members.sample
+    @members.delete(members.sample)
   end
 end

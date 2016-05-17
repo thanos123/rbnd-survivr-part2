@@ -26,6 +26,9 @@ class Jury
   end
 
   def announce_winner(final_votes)
-    final_votes.key(final_votes.values.max)
+    puts
+    winner = final_votes.key(final_votes.values.max)
+    puts "The WINNER is #{winner}"
+    winner
   end
 end

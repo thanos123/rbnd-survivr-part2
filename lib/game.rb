@@ -25,7 +25,7 @@ class Game
   end
 
   def individual_immunity_challenge
-    members = @tribes[0].members
+    members = @tribes[0].members.clone
     winner = members.sample
     members.delete(winner)
     @tribes[0].members.delete(members.sample)
