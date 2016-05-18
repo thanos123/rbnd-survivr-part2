@@ -2,7 +2,7 @@ class Game
   attr_reader :tribes
 
   def initialize(*tribes)
-    @tribes = *tribes
+    @tribes = tribes
   end
 
   def add_tribe(tribe)
@@ -10,7 +10,7 @@ class Game
   end
 
   def immunity_challenge
-    @tribes.sample
+    @tribes.sample # losing tribe
   end
 
   def clear_tribes
@@ -21,10 +21,12 @@ class Game
     members = []
     @tribes.each{ |tribe| members.push(*tribe.members) }
     clear_tribes
-    @tribes[0] = Tribe.new(name: new_tribe_name, members: members)
+    merged_tribe = Tribe.new(name: new_tribe_name, members: members)
+    add_tribe(merged_tribe)
+    merged_tribe
   end
 
   def individual_immunity_challenge
-    @tribes[0].members.clone
+    @tribes[0].members.sample
   end
 end
